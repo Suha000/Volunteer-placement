@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Maison Cafe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color:white;
+        color:rgb(15, 16, 46);
+        min-height: 100vh; /* Ensure body height takes up the full height of the viewport */
+        padding-bottom: 80px; /* Add space for the footer */
+        box-sizing: border-box; /* Include padding in total height */
+        }
+    
+        h1, h2 {
+            font-family: 'Georgia', serif;
+        }
+    
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+    
+        /* Header Styles */
+        header {
+            background-color: rgb(39, 39, 84); /* blue */
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+    
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+    
+        /* Navigation Styles */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+    
+        nav ul li a {
+            font-size: 1.2em;
+            color: white;
+            transition: color 0.3s;
+        }
+    
+        nav ul li a:hover {
+            color: #ffd700; /* Gold color */
+        }
+        
+     /* Menu Section Styles */
+    .menu-section {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        text-align: center;
+        border-bottom: 2px solid #000000e0;
+        padding-bottom: 10px;
+    }
+    /* Make the Menu Section headers bigger */
+    #Location, #Combo-Deals, #Specialoffers {
+    font-size: 0.9em;
+    width: 100%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#Location .location-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width:100%;
+}
+
+#Contact .Contact-box {
+    padding: 20px;
+    background-color: white;
+    margin: 20px auto;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    /* Contact Section */
+#Contact {
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 700px; /* Adjust width to make the form slightly larger */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#Contact h2 {
+    font-size: 2.5em; /* Bigger heading for prominence */
+}
+
+#Contact form label {
+    font-size: 1.2em; /* Larger font for labels */
+    margin-top: 10px;
+}
+
+#Contact form input, 
+#Contact form textarea {
+    font-size: 1.1em; /* Larger input fields */
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%; /* Make inputs take full width */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#Contact form input[type="submit"] {
+    font-size: 1.2em;
+    padding: 12px 20px;
+    background-color: #680c65; /* Matching button color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#Contact form input[type="submit"]:hover {
+    background-color: #540303; /* Darker hover effect */
+}
+
+    
+    /* Align Brunch, Breakfast, and Dessert in the same line */
+    #brunch, #breakfast, #desserts {
+        display: inline-block; /* Make them inline */
+        width: 33%; /* Adjust width for each box */
+        margin-right: 5%; /* Space between boxes */
+        text-align: center; /* Center the content */
+        padding: 20px; /* Padding inside each box */
+        border-radius: 8px; /* Rounded corners */
+    }
+    
+    /* Specific Color for Each Menu Section */
+    #brunch {
+        background-color: #99d4f8; /* Brunch Color */
+    }
+    
+    #breakfast {
+        background-color: #f1a955; /* Breakfast Color */
+    }
+    
+    #desserts {
+        background-color: #b56075; /* Dessert Color */
+    }
+    
+    /* Optional: Styling for better visibility */
+    #brunch h2, #breakfast h2, #desserts h2 {
+        font-size: 1.8em; /* Slightly bigger title for better prominence */
+    }
+    
+    /* Menu Box Styling */
+    .menu-box {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+    
+    .menu-box ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .menu-box ul li {
+        font-size: 1.2em;
+        padding: 8px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .menu-box ul li:last-child {
+        border-bottom: none; 
+     }
+    
+     /* Hover Effect for Menu Items */  
+    .menu-box ul li:hover {
+        background-color: #f1f1f1;
+        cursor: pointer; 
+    }
+    
+        /* Section Styles */
+        section {
+            padding: 30px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        section h2 {
+            font-size: 1.1em;
+            color: black;
+            border-bottom: 10px solid #a5a2aa;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+    
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        section ul li {
+            font-size: 1.1em;
+            padding: 8px 0;
+        }
+    
+        section ul li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh; /* Full viewport height */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        justify-content: flex-start; /* Align to top */
+        align-items: center; /* Center horizontally */
+        background-color: #f4f4f4;
+    }
+    
+    header {
+        background-color: rgb(39, 39, 84); /* Blue background */
+        padding: 20px;
+        text-align: center;
+        color: white;
+        width: 100%; /* Full width */
+    }
+    
+    #about-products {
+        text-align: center; /* Center the paragraph */
+        padding: 50px;
+        background-color: #fff;
+        max-width: 800px;
+        margin: 20px auto; /* Add margin to separate from top */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    }
+    
+    #about-products h2 {
+        font-size: 3em; /* Larger font for heading */
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    
+    #about-products p {
+        font-size: 1.5em; /* Larger font for paragraph */
+        line-height: 1.8;
+        color: #555;
+        margin-top: 20px;
+    }
+    
+    /* Footer Styles */
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        position: fixed; bottom: 0; width: 100%; /* Fixed positioning */
+        bottom: 0; /* Always at the bottom */
+        left: 0;
+        width: 100%;
+        z-index: 100; /* Ensure it's on top */
+    }
+    
+    /* Footer Links Styles */
+    footer ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    footer ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    footer ul li a {
+        color: white;
+        font-size: 1.2em;
+    }
+    
+    footer ul li a:hover {
+        color: #ffd700; /* Gold color on hover */
+    }
+    </style>
+
+<body>
+    <header>
+        <nav> 
+            <ul>
+                <li><a href="#Shop">Shop</a></li>
+                <li><a href="#Menu">Menu</a></li>
+                <li><a href="#Location">Location</a></li>
+                <li><a href="#Contact">Contact</a></li>
+                <li><a href="#Offers">Offers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+     <!-- Menu Content Section -->
+     <h1>La Maison du Boba Cafe</h1>
+
+     <section id="about-products">
+        <h2>About Our Products</h2>
+        <p>At La Maison Cafe, we pride ourselves on offering high-quality, delicious, and fresh products. From our handcrafted boba drinks and aromatic coffees to our mouthwatering desserts, we ensure every item is made with care and the finest ingredients. Whether you're in the mood for a sweet treat or a savory meal, our diverse menu is designed to delight every taste bud.</p>
+    </section>
+
+     <section id="brunch" class="Menu-section">
+        <h2>Brunch Menu</h2>
+        <div class="menu-box"> 
+            <ul>
+                <li>Pancakes - $5.99</li>
+                <li>Avocado Toast - $6.49</li>
+                <li>Eggs Benedict - $7.99</li>
+                <li>French Toast - $6.99</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="breakfast" class="Menu-section">
+        <h2>Breakfast Menu</h2>
+        <div class="Menu-box"> 
+             <ul>
+                <li>Omelette with Spinach - $4.99</li>
+                <li>Fruit Parfait - $4.49</li>
+                <li>Breakfast Burrito - $5.99</li>
+                <li>Bagels with Cream Cheese - $3.99</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="Desserts" class="Menu-section">
+        <h2>Desserts Menu</h2>
+        <div class="Menu-box"> 
+             <ul>
+                <li>Chocolate Lava Cake - $5.99</li>
+                <li>Strawberry Cheesecake - $4.99</li>
+                <li>Brownies - $3.49</li>
+                <li>Vanilla Cupcake - $2.99</li>
+            </ul>
+        </div>
+    </section>
+
+      <!-- Boba Drinks Section  -->
+     <section id="Boba-drinks">
+        <h2>Boba drink(Bubble tea)</h2>
+        <ul>
+            <li>Classic Milk Tea - $4.99</li>
+            <li>Taro Milk Tea - $5.49</li>
+            <li>Matcha Latte Boba - $5.99</li>
+            <li>Strawberry Milk Boba - $4.99</li>
+            <li>Mango Green Tea Boba - $5.49</li>
+            <li>Brown Sugar Boba - $5.99</li>
+            <li>Tropical Boba Punch - $5.49</li>
+        </ul>
+     </section>
+
+     <!-- Coffee & Espresso Drinks Section -->
+     <section id="Coffee-drinks">
+        <h2>Coffee & Espresso Drinks</h2>
+        <ul>
+            <li>Espresso - $2.99</li>
+            <li>Americano - $3.49</li>
+            <li>Latte - $4.49</li>
+            <li>Cappuccino - $4.49</li>
+            <li>Mocha - $4.99</li>
+            <li>Flat White - $4.99</li>
+            <li>Iced Coffee - $3.99</li>
+        </ul>
+    </section>
+
+     <!-- Signature Desserts & Cakes Section -->
+    <section id="Desserts">
+        <h2>Signature Desserts & Cakes</h2>
+        <ul>
+            <li>Chocolate Lava Cake - $5.99</li>
+            <li>Carrot Cake with Cream Cheese Frosting - $4.99</li>
+            <li>Lemon Drizzle Cake - $4.49</li>
+            <li>Red Velvet Cake - $5.49</li>
+            <li>Cheesecake - $4.99</li>
+            <li>Apple Cinnamon Cake - $4.99</li>
+            <li>Vanilla Bean Cupcake - $2.99</li>
+            <li>Chocolate Fudge Cupcake - $3.49</li>
+            <li>Strawberry Shortcake Cupcake - $3.49</li>
+            <li>Cookies & Cream Cupcake - $3.49</li>
+            <li>Matcha Cupcake - $3.99</li>
+        </ul>
+    </section>
+
+    <!-- Sandwiches & Light Meals Section -->
+    <section id="Sandwiches">
+        <h2>Sandwiches & Light Meals</h2>
+        <ul>
+            <li>Classic Grilled Cheese - $4.49</li>
+            <li>Turkey & Avocado Sandwich - $6.49</li>
+            <li>Veggie & Hummus Wrap - $5.49</li>
+            <li>Chicken Caesar Wrap - $6.49</li>
+            <li>Caprese Sandwich - $5.99</li>
+            <li>Egg Salad Sandwich - $4.99</li>
+        </ul>
+    </section>
+
+    <!-- Tea & Iced Teas Section -->
+    <section id="Teas">
+        <h2>Tea & Iced Teas</h2>
+        <ul>
+            <li>Earl Grey Tea - $2.49</li>
+            <li>Jasmine Green Tea - $2.49</li>
+            <li>Chai Latte - $3.99</li>
+            <li>Iced Lemonade Tea - $3.49</li>
+            <li>Peach Iced Tea - $3.49</li>
+            <li>Mint Iced Tea - $3.49</li>
+        </ul>
+    </section>
+
+    <!-- Smoothies & Shakes Section -->
+    <section id="Smoothies">
+        <h2>Smoothies & Shakes</h2>
+        <ul>
+            <li>Berry Blast Smoothie - $5.49</li>
+            <li>Tropical Smoothie - $5.49</li>
+            <li>Banana Nut Smoothie - $5.99</li>
+            <li>Chocolate Banana Shake - $5.49</li>
+            <li>Vanilla Bean Milkshake - $5.49</li>
+        </ul>
+    </section>
+
+    <!-- Combo Deals Section -->
+    <section id="Combo Deals">
+        <h2>Combo Deals</h2>
+        <ul>
+            <li>Boba + Cookie Combo - $6.49</li>
+            <li>Cupcake & Coffee Combo - $7.99</li>
+            <li>Lunch Combo (Any Sandwich + Drink) - $9.99</li>
+        </ul>
+    </section>
+
+    <!-- Location Section -->
+    <section id="Location">
+        <h2>Our Location</h2>
+        <p>Visit us at:</p>
+        <p>123 Coffee Street, Downtown, City, Country</p>
+        <p>Phone: +123 456 7890</p>
+        <p>Hours: Mon-Sun, 8:00 AM - 10:00 PM</p>
+        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="350"></iframe>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="Contact">
+        <h2>Contact Us</h2>
+        <form action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" placeholder="Your message" required></textarea><br>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </section>
+
+    <!-- Offers Section -->
+    <section id="offers">
+        <h2>Special Offers</h2>
+        <ul>
+            <li>Boba + Cookie Combo: $6.49 (Limited Time)</li>
+            <li>10% off your first order - Use code: FIRST10</li>
+            <li>Free dessert with any sandwich purchase (Weekends Only)</li>
+        </ul>
+    </section>
+
+ <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 La Maison Cafe. All rights reserved.</p>
+        <p>Follow us on social media:</p>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </footer>
+
+
+
+</body>
+</html>
